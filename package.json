@@ -1,0 +1,24 @@
+{
+  "name": "bingotwitchextension",
+  "version": "1.0.0",
+  "description": "A Twitch extension that lets you play a game of BINGO on a livestream",
+  "main": "src/index.tsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abdullahmorrison/BingoTwitchExtension.git"
+  },
+  "keywords": [
+    "BINGO",
+    "Twitch",
+    "Livestream",
+    "Extension"
+  ],
+  "author": "Abdullah Morrison",
+  "bugs": {
+    "url": "https://github.com/abdullahmorrison/BingoTwitchExtension/issues"
+  },
+  "homepage": "https://github.com/abdullahmorrison/BingoTwitchExtension#readme"
+}
