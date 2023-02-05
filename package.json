@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/abdullahmorrison/BingoTwitchExtension/issues"
   },
-  "homepage": "https://github.com/abdullahmorrison/BingoTwitchExtension#readme"
+  "homepage": "https://github.com/abdullahmorrison/BingoTwitchExtension#readme",
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  }
 }
