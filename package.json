@@ -24,6 +24,8 @@
   },
   "homepage": "https://github.com/abdullahmorrison/BingoTwitchExtension#readme",
   "devDependencies": {
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
     "css-loader": "^6.7.3",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.7.2",
