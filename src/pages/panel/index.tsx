@@ -8,4 +8,3 @@ root.render(
     <div>panel</div>
   </React.StrictMode>
 );
-
