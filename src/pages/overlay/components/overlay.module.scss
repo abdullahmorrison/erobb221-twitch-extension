@@ -1,5 +1,38 @@
 @import '../../../variables.scss';
 
 .overlay{
-  background-color: $primary-color;
+  display: flex;
+  align-items: center;
+
+  color: $primary-text;
+  font-family: $font-family;
+
+  main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: $primary-color;
+    border: 2px solid black;
+    border-radius: 0 5px 5px 0;
+    box-shadow: 0 2px 4px black;
+
+    padding: 20px;
+    width: 600px;
+    height: 600px;
+  }
+
+  button{
+    all: unset;
+
+    border: 1px solid black;
+    border-radius: 0 5px 5px 0;
+    background-color: $primary-color;
+
+    height: 100px;
+
+    &:hover, &:focus{
+      cursor: pointer;
+    }
+  }
 }
