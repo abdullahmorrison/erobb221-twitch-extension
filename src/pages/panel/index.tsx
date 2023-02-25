@@ -5,6 +5,6 @@ const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement)
 
 root.render(
   <React.StrictMode>
-    <div>panel</div>
+    <h1>panel</h1>
   </React.StrictMode>
 );
