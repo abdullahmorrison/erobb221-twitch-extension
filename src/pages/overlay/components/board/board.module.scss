@@ -1,0 +1,32 @@
+@import '../../../../variables.scss';
+
+.board{
+  background-color: $secondary-color;
+  color: $secondary-text;
+
+  &Tile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+
+    font-size: x-small;
+    border: 1px solid black;
+
+    padding: 5px;
+    height: 60px;
+    width: 60px;
+
+    p{
+      font-weight: bold;
+    }
+
+    &:hover, &:focus{
+      background-color: $primary-color;
+      filter: brightness(1.5);
+
+      cursor: pointer;
+    }
+  }
+}
