@@ -16,13 +16,16 @@
     justify-content: space-between;
     text-align: center;
 
-    font-size: x-small;
+    font-size: 0.5rem;
     border: 1px solid black;
 
     padding: 5px;
-    height: 60px;
-    width: 60px;
+    height: 80px;
+    width: 80px;
 
+    img{
+      height: 60%;
+    }
     p{
       font-weight: bold;
     }
