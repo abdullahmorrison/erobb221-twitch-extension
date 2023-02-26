@@ -1,7 +1,12 @@
 @import '../../../../variables.scss';
 
 .board{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin: 0 20px;
+
   background-color: $secondary-color;
+  border: 1px solid black;
   color: $secondary-text;
 
   &Tile{
