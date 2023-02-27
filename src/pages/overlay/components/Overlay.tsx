@@ -9,9 +9,10 @@ export default function Overlay(){
       <main>
         <h1>Streamer Bingo</h1>
         <Board />
+        <button className={styles.newGameButton}>New Game</button>
       </main>
 
-      <button>
+      <button className={styles.openExtensionButton}>
         <span>+</span>
       </button>
     </div>

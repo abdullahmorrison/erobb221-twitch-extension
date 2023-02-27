@@ -10,6 +10,7 @@
   main{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 
     background-color: $primary-color;
@@ -20,19 +21,28 @@
     padding: 20px;
     width: 600px;
     height: 600px;
+
+    .newGameButton{
+      padding: 5px;
+      background-color: $secondary-color;
+      color: $secondary-text;
+      font-weight: bold;
+    }
   }
 
-  button{
-    all: unset;
-
-    border: 1px solid black;
+  .openExtensionButton{
     border-radius: 0 5px 5px 0;
     background-color: $primary-color;
 
     height: 100px;
+  }
+}
+button{
+  all: unset;
 
-    &:hover, &:focus{
-      cursor: pointer;
-    }
+  border: 1px solid black;
+
+  &:hover, &:focus{
+    cursor: pointer;
   }
 }
