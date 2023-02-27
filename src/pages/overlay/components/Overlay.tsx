@@ -7,7 +7,10 @@ export default function Overlay(){
   return (
     <div className={styles.overlay}>
       <main>
-        <h1>Streamer Bingo</h1>
+        <div className={styles.title}>
+          <h1>Streamer Bingo </h1>
+          <button className={styles.help}>?</button>
+        </div>
         <Board />
         <button className={styles.newGameButton}>New Game</button>
       </main>
