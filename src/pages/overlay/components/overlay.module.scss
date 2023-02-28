@@ -1,8 +1,22 @@
 @import '../../../variables.scss';
 
+.closed{//overlay position when closed
+  left: -545px;
+
+}
+.open{//overlay position when opened
+  left: 0;
+  .openExtensionButton::after{
+    transform: rotate(90deg) !important;
+  }
+}
 .overlay{
   display: flex;
   align-items: center;
+
+  //positioning the overlay
+  position: absolute;
+  transition: 0.2s ease-in-out ;
 
   color: $primary-text;
   font-family: $font-family;
@@ -68,7 +82,7 @@
       position: absolute;
       transform: rotate(-90deg);
       top: 50%;
-      right: calc(50% - 15px);
+      right: calc(50% - 14px);
 
       width: 0;
       height: 0;
