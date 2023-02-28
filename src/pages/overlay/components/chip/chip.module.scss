@@ -1,0 +1,27 @@
+@import "../../../../variables.scss";
+
+.chip{
+  //position of the image in the chip
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  //Position of the Chip on the tile
+  position: absolute;
+  top: 15px;
+  left: 15px;
+
+  //Chip style
+  background-color: $primary-color;
+  border-radius: 50%;
+  outline: 2px solid black;
+  padding: 5px 5px 6px 5px; //6px centers the img
+  width: 50px;
+  height: 50px;
+
+  img{
+    border-radius: 10px;
+    width: 45px;
+    height: 45px;
+  }
+}
