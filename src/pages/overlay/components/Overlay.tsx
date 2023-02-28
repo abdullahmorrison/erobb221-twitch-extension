@@ -15,9 +15,7 @@ export default function Overlay(){
         <button className={styles.newGameButton}>New Game</button>
       </main>
 
-      <button className={styles.openExtensionButton}>
-        <span>+</span>
-      </button>
+      <button className={styles.openExtensionButton}></button>
     </div>
   )
 }
