@@ -3,6 +3,7 @@
 .board{
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  position: relative;
   margin: 0 20px;
 
   background-color: $secondary-color;
@@ -39,4 +40,22 @@
       cursor: pointer;
     }
   }
+}
+.bingo::after{
+  content: 'BINGO!';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+
+  background-color: #000000bb;
+  border: 1px solid black;
+  color: $primary-text;
+  font-size: 5rem;
+  font-weight: bold;
 }

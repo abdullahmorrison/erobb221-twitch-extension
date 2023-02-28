@@ -1,12 +1,12 @@
 import {Tile} from './Board'
 
-export default function checkBingo(board: Tile[]){
+export default function checkBingo(board: Tile[]): boolean{
   const chipsInARow = 5
   if(checkRowBingo(board, chipsInARow)
   || checkColumnBingo(board, chipsInARow)
-  || checkDiagonalBingo(board, chipsInARow)) {
-    console.log('BINGO!')
-  }
+  || checkDiagonalBingo(board, chipsInARow)) return true
+
+  return false
 }
 
 const checkRowBingo = (board: Tile[], chipsInARow: number) =>{
