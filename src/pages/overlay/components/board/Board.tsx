@@ -14,7 +14,14 @@ interface Tile{
   clicked: boolean
 }
 export default function Board() {
-  const [board, setBoard] = React.useState<Tile[]>(BoardData)
+  const [board, setBoard] = React.useState<Tile[]>(
+    localStorage.getItem('board') ? JSON.parse(localStorage.getItem('board') || '')
+    : BoardData
+  )
+
+  React.useEffect(() => {
+    localStorage.setItem('board', JSON.stringify(board))
+  }, [board])
 
   return (
     <div className={styles.board}>
