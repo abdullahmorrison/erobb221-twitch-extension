@@ -2,10 +2,11 @@ import React from "react";
 import styles from "./board.module.css";
 
 import BoardData from '../../../../assets/board.json'
+import checkBingo from "./bingoChecker";
 
 import Chip from '../chip/Chip'
 
-interface Tile{
+export interface Tile{
   img: {
     src: string
     altText: string
@@ -21,6 +22,7 @@ export default function Board() {
 
   React.useEffect(() => {
     localStorage.setItem('board', JSON.stringify(board))
+    checkBingo(board)
   }, [board])
 
   return (
