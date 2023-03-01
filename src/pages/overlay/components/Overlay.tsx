@@ -8,21 +8,14 @@ import checkBingo from "./board/bingoChecker";
 import BoardData from '../../../assets/board.json'
 
 export default function Overlay(){
-  const [isExtensionOpen, setIsExtensionOpen] = React.useState(false)
-  const [bingo, setBingo] = React.useState<boolean>(
-    localStorage.getItem('bingo') ? JSON.parse(localStorage.getItem('bingo') || '')
-    : false
-  )
-  const [board, setBoard] = React.useState<Tile[]>(
-    localStorage.getItem('board') ? JSON.parse(localStorage.getItem('board') || '')
-    : BoardData
-  )
-  React.useEffect(() => {
-    localStorage.setItem('board', JSON.stringify(board))
-    localStorage.setItem('bingo', JSON.stringify(bingo))
-    checkBingo(board) ? setBingo(true) : setBingo(false)
-  }, [board])
-
+  const randomizeBoard = (board: Tile[]) => {
+    const boardCopy = [...board]
+    for (let i = boardCopy.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [boardCopy[i], boardCopy[j]] = [boardCopy[j], boardCopy[i]];
+    }
+    return boardCopy
+  }
   const handleNewGame = () => {
     const newBoard = BoardData.map((tile: Tile) => {
       return {
@@ -30,8 +23,25 @@ export default function Overlay(){
         clicked: false
       }
     })
-    setBoard(newBoard)
+    setBoard(randomizeBoard(newBoard))
   }
+
+  const [isExtensionOpen, setIsExtensionOpen] = React.useState(false)
+
+  const [bingo, setBingo] = React.useState<boolean>(
+    localStorage.getItem('bingo') ? JSON.parse(localStorage.getItem('bingo') || '')
+    : false
+  )
+  const [board, setBoard] = React.useState<Tile[]>(
+    localStorage.getItem('board') ? JSON.parse(localStorage.getItem('board') || '')
+    : randomizeBoard(BoardData)
+  )
+
+  React.useEffect(() => {
+    localStorage.setItem('board', JSON.stringify(board))
+    localStorage.setItem('bingo', JSON.stringify(bingo))
+    checkBingo(board) ? setBingo(true) : setBingo(false)
+  }, [board])
 
   return (
     <div className={`${styles.overlay} ${styles.openExtensionButton} ${isExtensionOpen ? styles.open: styles.closed}`}>
