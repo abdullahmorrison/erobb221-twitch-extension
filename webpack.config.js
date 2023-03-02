@@ -33,6 +33,9 @@ module.exports = {
     ]
   },
   devtool: prod ? undefined : 'source-map',
+  devServer: {
+    https: true,
+  },
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'video_overlay.html',
