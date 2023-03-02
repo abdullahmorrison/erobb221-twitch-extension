@@ -67,6 +67,8 @@ export default function Overlay(){
           }}
         />
         <button onClick={handleNewGame} className={styles.newGameButton}>New Game</button>
+
+        <span className={styles.credits}>Made by @AbdullahMorrison</span>
       </main>
 
       <button className={styles.openExtensionButton} onClick={() => setIsExtensionOpen(!isExtensionOpen)}></button>
