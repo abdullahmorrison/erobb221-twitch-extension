@@ -25,6 +25,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative; // for the instructions overlay
+    overflow: hidden;// for the instructions overlay
     gap: 10px;
 
     background-color: $primary-color;
