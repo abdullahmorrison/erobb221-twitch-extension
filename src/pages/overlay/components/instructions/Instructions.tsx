@@ -2,17 +2,21 @@ import React from 'react'
 
 import styles from './instructions.module.css'
 
+import Streamer from '../../../../assets/streamer.json'
+
 interface InstructionsProps {
   closeInstructions: () => void
 }
 export default function Instructions(props: InstructionsProps){
+  const [streamer] = React.useState(Streamer.name)
+
   return (
     <div className={styles.background}>
       <div className={styles.instructions}>
         <span className={styles.close} onClick={props.closeInstructions}>&times;</span>
 
         <h2>Description</h2>
-        <p>This is a Twitch extension where you can play a bingo game about _______</p>
+        <p>This is a Twitch extension where you can play a bingo game about {streamer}</p>
 
         <h2>Intructions</h2>
         <h3>How to Add/Remove a Chip:</h3>
