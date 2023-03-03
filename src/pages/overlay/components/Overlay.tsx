@@ -33,7 +33,7 @@ export default function Overlay(props: OverlayProps){
 
   const [isExtensionOpen, setIsExtensionOpen] = React.useState(false)
   const [isInstructionsOpen, setIsInstructionsOpen] = React.useState(false)
-  const [streamer, setStreamer] = React.useState(Streamer.name)
+  const [streamer] = React.useState(Streamer.name)
 
   const [bingo, setBingo] = React.useState<boolean>(
     localStorage.getItem('bingo') ? JSON.parse(localStorage.getItem('bingo') || '')
