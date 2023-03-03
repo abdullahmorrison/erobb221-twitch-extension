@@ -9,7 +9,10 @@ import checkBingo from "./board/bingoChecker";
 import BoardData from '../../../assets/board.json'
 import Streamer from '../../../assets/streamer.json'
 
-export default function Overlay(){
+interface OverlayProps {
+  showOverlay: boolean
+}
+export default function Overlay(props: OverlayProps){
   const randomizeBoard = (board: Tile[]) => {
     const boardCopy = [...board]
     for (let i = boardCopy.length - 1; i > 0; i--) {
@@ -48,7 +51,7 @@ export default function Overlay(){
   }, [board])
 
   return (
-    <div className={`${styles.overlay} ${styles.openExtensionButton} ${isExtensionOpen ? styles.open: styles.closed}`}>
+    <div className={`${styles.overlay} ${styles.openExtensionButton} ${isExtensionOpen && props.showOverlay ? styles.open: styles.closed}`}>
       <main>
         {isInstructionsOpen ? <Instructions closeInstructions={()=>setIsInstructionsOpen(false)} /> : null}
 
@@ -71,7 +74,7 @@ export default function Overlay(){
         <span className={styles.credits}>Made by @AbdullahMorrison</span>
       </main>
 
-      <button className={styles.openExtensionButton} onClick={() => setIsExtensionOpen(!isExtensionOpen)}></button>
+      <button className={`${styles.openExtensionButton} ${props.showOverlay? null : styles.hideOpenExtensionButton}`} onClick={() => setIsExtensionOpen(!isExtensionOpen)}></button>
     </div>
   )
 }

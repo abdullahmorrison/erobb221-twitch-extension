@@ -100,6 +100,13 @@
       border-top: 10px solid black;
     }
   }
+  .hideOpenExtensionButton{
+    width: 0;
+    border: none;
+    &::after{
+      border: none;
+    }
+  }
 }
 button{
   all: unset;
