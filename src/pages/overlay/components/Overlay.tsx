@@ -10,7 +10,7 @@ import BoardData from '../../../assets/board.json'
 import Streamer from '../../../assets/streamer.json'
 
 interface OverlayProps {
-  showOverlay: boolean
+  isOverlayVisible: boolean
 }
 export default function Overlay(props: OverlayProps){
   const randomizeBoard = (board: Tile[]) => {
@@ -51,7 +51,7 @@ export default function Overlay(props: OverlayProps){
   }, [board])
 
   return (
-    <div className={`${styles.overlay} ${styles.openExtensionButton} ${isExtensionOpen && props.showOverlay ? styles.open: styles.closed}`}>
+    <div className={`${styles.overlay} ${styles.openExtensionButton} ${isExtensionOpen && props.isOverlayVisible ? styles.open: styles.closed}`}>
       <main>
         {isInstructionsOpen ? <Instructions closeInstructions={()=>setIsInstructionsOpen(false)} /> : null}
 
@@ -74,7 +74,7 @@ export default function Overlay(props: OverlayProps){
         <span className={styles.credits}>Made by @AbdullahMorrison</span>
       </main>
 
-      <button className={`${styles.openExtensionButton} ${props.showOverlay? null : styles.hideOpenExtensionButton}`} onClick={() => setIsExtensionOpen(!isExtensionOpen)}></button>
+      <button className={`${styles.openExtensionButton} ${props.isOverlayVisible? null : styles.hideOpenExtensionButton}`} onClick={() => setIsExtensionOpen(!isExtensionOpen)}></button>
     </div>
   )
 }
