@@ -1,12 +1,17 @@
 $primary-color: grey;
 $secondary-color: white;
 
+$primary-text: white;
+$secondary-text: black;
+
 $highlight-color: orange;
 $watermark-color: #bdbdbd;
 $sudo-black: #2c2c2c;
 
-
-$primary-text: white;
-$secondary-text: black;
-
 $font-family: 'Arial', sans-serif;
+
+$breakpoints: (
+  m: 600px,
+  s: 500px,
+  xs: 400px
+)
