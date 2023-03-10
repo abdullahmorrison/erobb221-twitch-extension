@@ -1,14 +1,29 @@
-@import '../../../../variables.scss';
+@use '../../../../variables.scss' as *;
+@use "sass:map";
+
+@mixin board-tile-size($size: 80px, $font-size: 0.5rem){
+  .boardTile{
+    width: $size;
+    height: $size;
+
+    font-size: $font-size;
+  }
+}
 
 .board{
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, 20%);
   position: relative;
   margin: 0 20px;
 
   background-color: $secondary-color;
   border: 1px solid black;
   color: $secondary-text;
+
+
+  @include board-tile-size();
+  @media screen and (max-height: map.get($breakpoints, m)) { @include board-tile-size(60px); }
+  @media screen and (max-height: map.get($breakpoints, s)) { @include board-tile-size(50px, 0.45rem); }
 
   &Tile{
     display: flex;
@@ -19,16 +34,13 @@
     position: relative; //to position the chip
     text-align: center;
 
-    font-size: 0.5rem;
     border: 1px solid black;
 
     padding: 5px;
-    height: 80px;
-    width: 80px;
 
     img{
       max-height: 60%;
-      max-width: 80px;
+      width: 70%;
     }
     p{
       font-weight: bold;

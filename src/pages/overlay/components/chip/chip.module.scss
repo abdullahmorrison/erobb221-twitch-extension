@@ -1,4 +1,5 @@
-@import "../../../../variables.scss";
+@use "../../../../variables.scss" as *;
+@use "sass:map";
 
 .chip{
   //position of the image in the chip
@@ -24,5 +25,33 @@
     border-radius: 10px;
     width: 40px;
     max-height: 45px;
+  }
+
+  @media screen and (max-height: map.get($breakpoints, m)) {
+    top: 10px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    padding: 4px 4px 5px 4px;
+
+    img{
+      width: 30px;
+      max-height: 35px;
+    }
+  }
+}
+
+@media screen and (max-height: map.get($breakpoints, s)) {
+  .chip{
+    top: 8px;
+    left: 8px;
+    width: 35px;
+    height: 35px;
+    padding: 3px 3px 4px 3px;
+
+    img{
+      width: 25px;
+      max-height: 30px;
+    }
   }
 }
