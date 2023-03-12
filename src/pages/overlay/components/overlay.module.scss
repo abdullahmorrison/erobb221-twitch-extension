@@ -1,7 +1,17 @@
-@import '../../../variables.scss';
+@use '../../../variables.scss' as *;
+@use 'sass:map';
+
+$widths: (
+  normal-width: 520px,
+  small-width: 420px,
+  smaller-width: 380px,
+);
 
 .closed{//overlay position when closed
-  left: -545px;
+  //
+  left: (map-get($widths, (normal-width)) + 5) * -1;
+  @media screen and (max-height: map-get($breakpoints, m)){ left: (map-get($widths, (small-width)) + 5) * -1; }
+  @media screen and (max-height: map-get($breakpoints, s)){ left: (map-get($widths, (smaller-width)) + 5) * -1; }
 }
 .open{//overlay position when opened
   left: 0;
@@ -33,12 +43,20 @@
     border: 2px solid black;
     border-radius: 0 5px 5px 0;
     box-shadow: 0 2px 4px black;
-    padding: 20px;
+    padding: 15px 0;
+
+    width: 520px;
+    @media screen and (max-height: map-get($breakpoints, m)){ width: map-get($widths, small-width); }
+    @media screen and (max-height: map-get($breakpoints, s)){ width: map-get($widths, smaller-width); }
 
     .title{
       display: flex;
       align-items: center;
       gap: 10px;
+
+      h1{
+        font-size: 1.8rem;
+      }
 
       .help{
         font-size: 1rem;
