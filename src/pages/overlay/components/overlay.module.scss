@@ -16,7 +16,7 @@ $widths: (
 .open{//overlay position when opened
   left: 0;
   .openExtensionButton::after{
-    transform: rotate(90deg) !important;
+    transform: rotate(90deg) !important; //flip the arrow to point to the left once clicked
   }
 }
 .overlay{
