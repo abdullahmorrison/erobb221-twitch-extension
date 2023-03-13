@@ -5,6 +5,7 @@ import styles from './app.module.css'
 
 export default function App(){
   const [isOverlayVisible, setIsOverlayVisible] = React.useState(false)
+  const [isExtensionOpen, setIsExtensionOpen] = React.useState(false)
   const sleepTimer = React.useRef<NodeJS.Timeout | undefined>(undefined)
 
   const hideOverlay = () => {
@@ -24,9 +25,12 @@ export default function App(){
       className={styles.app}
       onMouseMove={showOverlay}
       onMouseLeave={hideOverlay}
+      onClick={()=>isExtensionOpen ? setIsExtensionOpen(false) : null}
     >
       <Overlay
         isOverlayVisible={isOverlayVisible}
+        isExtensionOpen={isExtensionOpen}
+        setIsExtensionOpen={setIsExtensionOpen}
       />
     </div>
   )
