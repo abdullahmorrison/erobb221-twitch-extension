@@ -25,7 +25,7 @@ export default function App(){
       className={styles.app}
       onMouseMove={showOverlay}
       onMouseLeave={hideOverlay}
-      onClick={()=>isExtensionOpen ? setIsExtensionOpen(false) : null}
+      onClick={(event)=>isExtensionOpen && event.target == event.currentTarget? setIsExtensionOpen(false) : null}
     >
       <Overlay
         isOverlayVisible={isOverlayVisible}
