@@ -1,6 +1,6 @@
 import React from "react";
 
-import ChipData from "../../../../assets/chip.json"
+import ChipData from "../../assets/chip.json"
 
 import styles from "./chip.module.css";
 

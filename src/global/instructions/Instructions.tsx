@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from './instructions.module.css'
 
-import Streamer from '../../../../assets/streamer.json'
+import Streamer from '../../assets/streamer.json'
 
 interface InstructionsProps {
   closeInstructions: () => void
