@@ -34,7 +34,7 @@ export default function Overlay(props: OverlayProps){
   }
 
   const [isInstructionsOpen, setIsInstructionsOpen] = React.useState(false)
-  const [streamer] = React.useState(Streamer.name)
+  const [streamer] = React.useState(Streamer)
 
   const [bingo, setBingo] = React.useState<boolean>(
     localStorage.getItem('bingo') ? JSON.parse(localStorage.getItem('bingo') || '')
@@ -56,10 +56,10 @@ export default function Overlay(props: OverlayProps){
       <main>
         {isInstructionsOpen ? <Instructions closeInstructions={()=>setIsInstructionsOpen(false)} /> : null}
 
-        <div className={styles.title}>
-          <h1>{streamer} Bingo </h1>
+        <title>
+          <h1>{streamer.name} Bingo </h1>
           <button className={styles.help} onClick={()=>setIsInstructionsOpen(true)}>?</button>
-        </div>
+        </title>
 
         <Board
           board={board}

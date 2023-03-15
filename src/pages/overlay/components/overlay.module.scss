@@ -49,7 +49,7 @@ $widths: (
     @media screen and (max-height: map-get($breakpoints, m)){ width: map-get($widths, small-width); }
     @media screen and (max-height: map-get($breakpoints, s)){ width: map-get($widths, smaller-width); }
 
-    .title{
+    title{
       display: flex;
       align-items: center;
       gap: 10px;
