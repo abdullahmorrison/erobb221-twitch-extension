@@ -60,7 +60,7 @@ export default function Board() {
                 if (i === index) {
                   return {
                     ...tile,
-                    clicked: true
+                    clicked: !tile.clicked
                   }
                 }
                 return tile
