@@ -27,7 +27,7 @@
     max-height: 45px;
   }
 
-  @media screen and (max-height: map.get($breakpoints, m)) {
+  @media screen and (max-height: map.get($breakpoints, m)), (max-width: map.get($breakpoints, m)) {
     top: 10px;
     left: 10px;
     width: 40px;
@@ -41,7 +41,7 @@
   }
 }
 
-@media screen and (max-height: map.get($breakpoints, s)) {
+@media screen and (max-height: map.get($breakpoints, s)), (max-width: map.get($breakpoints, s)){
   .chip{
     top: 8px;
     left: 8px;

@@ -29,8 +29,8 @@
 
 
     @include board-tile-size();
-    @media screen and (max-height: map.get($breakpoints, m)) { @include board-tile-size(60px); }
-    @media screen and (max-height: map.get($breakpoints, s)) { @include board-tile-size(50px, 0.45rem); }
+    @media screen and (max-height: map.get($breakpoints, m)), (max-width: map.get($breakpoints, m)) { @include board-tile-size(60px); }
+    @media screen and (max-height: map.get($breakpoints, s)), (max-width: map.get($breakpoints, s)) { @include board-tile-size(50px, 0.45rem); }
 
     &Tile{
       display: flex;
