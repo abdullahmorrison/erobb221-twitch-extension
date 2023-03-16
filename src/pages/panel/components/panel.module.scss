@@ -13,7 +13,7 @@
     gap: 10px;
 
     background-color: $primary-color;
-    box-shadow: 0 3px 3px $sudo-black;
+    box-shadow: 0 3px 3px $pseudo-black;
     color: $primary-text;
 
     padding: 10px;
@@ -24,7 +24,7 @@
 
     .help{
       font-size: 1rem;
-      background-color: $sudo-black;
+      background-color: $pseudo-black;
       border-radius: 50%;
       border: 1px solid black;
       color: white;
