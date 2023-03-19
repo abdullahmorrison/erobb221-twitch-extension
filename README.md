@@ -10,7 +10,7 @@ Main branch holds the template for the bingo game. The branches with streamer us
 
 If you're using VSCode, CSS files are hidden through the settings.json file in .vscode.
 
-# Create a BINGO Game for a Streamer
+## Create a BINGO Game for a Streamer
 You can use this template to create your own bingo game for a streamer.
 
 1. Create an issue saying what streamer you want to create a bingo game for. I will create a branch for that streamer.
