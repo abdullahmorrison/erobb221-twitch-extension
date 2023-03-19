@@ -19,5 +19,6 @@ You can use this template to create your own bingo game for a streamer.
 3. In src/assets/board.json, edit the json to link the src of the image (ex: src: "imgs/Kappa.png") and name the alt as the name of the file (Ex: alt: "Kappa"). The title is the text that will be displayed on the board tile.
 4. In src/assets/streamer.json, change the streamer.name to the name of the streamer you are making a bingo game about.
 5. In src/assets/chip.json, add an image (located in public/imgs) that will be displayed on the chip and update the img field to correspond to the image (ex: src: "imgs/Kappa.png").
-6. Create a pull request to the branch of your streamer.
-7. I will create the extension and upload the code to Twitch.
+6. In src/variables.scss, change $primary-color to match your streamer's main color. Also, change $accent-color to the secondary color of your streamer that accents the $primary-color.
+7. Create a pull request to the branch of your streamer.
+8. I will create the extension and upload the code to Twitch.
