@@ -8,7 +8,7 @@ interface InstructionsProps {
   closeInstructions: () => void
 }
 export default function Instructions(props: InstructionsProps){
-  const [streamer] = React.useState(Streamer.name)
+  const [streamer] = React.useState(Streamer)
 
   return (
     <div className={styles.background}>
@@ -16,7 +16,7 @@ export default function Instructions(props: InstructionsProps){
         <span className={styles.close} onClick={props.closeInstructions}>&times;</span>
 
         <h2>Description</h2>
-        <p>This is a Twitch extension where you can play a bingo game about {streamer}</p>
+        <p>This is a Twitch extension where you can play a bingo game about {streamer.name}</p>
 
         <h2>Intructions</h2>
         <h3>How to Add/Remove a Chip:</h3>
@@ -24,6 +24,14 @@ export default function Instructions(props: InstructionsProps){
 
         <h3>How to Win (Bingo!):</h3>
         <p>Fill a row, column or diagonal with chips.</p>
+
+        <hr />
+
+        <p>
+          <a href={"https://github.com/abdullahmorrison/BingoTwitchExtension/tree/"+streamer.name} target="_blank">
+            View Git Repo
+          </a>
+        </p>
       </div>
     </div>
   )
