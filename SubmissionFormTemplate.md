@@ -1,4 +1,4 @@
-This extension allows users to play a bingo game about the streamer [STREAMER].
+This extension allows users to play a bingo game about the streamer erobb221.
 
 I submitted an Obfuscation Intake Request form because the build is not human-readable. The ZIP file attached to that form is the extension code.
 
@@ -15,7 +15,7 @@ External Links:
 Allowlist explanations:
 
 - wss://irc-ws.chat.twitch.tv:443, ws://irc-ws.chat.twitch.tv:80, irc://irc.chat.twitch.tv:6667, irc://irc.chat.twitch.tv:6697: urls the the chatbot connects to.
-- https://github.com/abdullahmorrison/BingoTwitchExtension/tree/[STREAMER]: the link to the git repo of the extension
+- https://github.com/abdullahmorrison/BingoTwitchExtension/tree/erobb221
 
 Start the application locally:
 
