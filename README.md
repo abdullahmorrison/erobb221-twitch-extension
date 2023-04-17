@@ -2,6 +2,10 @@
 
 A Twitch extension that lets you play a game of BINGO about a streamer.
 
+## Demo
+
+https://user-images.githubusercontent.com/49528805/232561191-f74816aa-167b-47b4-a22b-efd24cd1e725.mp4
+
 ## How Branches are Set Up
 
 Main branch holds the template for the bingo game. The branches with streamer usernames hold the colors and board info for that streamer.
