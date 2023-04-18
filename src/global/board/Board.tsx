@@ -16,27 +16,15 @@ export interface Tile{
   clicked: boolean
 }
 export default function Board() {
-  const randomizeBoard = (board: Tile[]) => {
-    const boardCopy = [...board]
-    for (let i = boardCopy.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [boardCopy[i], boardCopy[j]] = [boardCopy[j], boardCopy[i]];
-    }
-    return boardCopy
-  }
   const [board, setBoard] = React.useState<Tile[]>(
     localStorage.getItem('board') ? JSON.parse(localStorage.getItem('board') || '')
-    : randomizeBoard(BoardData)
+    : // get 25 random tiles from BoardData to create a board
+    BoardData.sort(() => Math.random() - 0.5).slice(0, 25)
   )
 
   const handleNewGame = () => {
-    const newBoard = BoardData.map((tile: Tile) => {
-      return {
-        ...tile,
-        clicked: false
-      }
-    })
-    setBoard(randomizeBoard(newBoard))
+    const newBoard = BoardData.sort(() => Math.random() - 0.5).slice(0, 25)
+    setBoard(newBoard)
   }
 
   const [bingo, setBingo] = React.useState<boolean>(

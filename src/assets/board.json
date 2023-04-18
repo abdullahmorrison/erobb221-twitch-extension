@@ -191,13 +191,268 @@
     "title": "Wheel Spin",
     "clicked": false
   },
-
   {
     "img": {
       "src": "imgs/DankReading.webp",
       "altText": "DankReading"
     },
     "title": "Can't Read",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/Texime.webp",
+      "altText": "Texime"
+    },
+    "title": "Cancels Movie Night",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/Dime.webp",
+      "altText": "Dime"
+    },
+    "title": "Dareon Joins the Stream",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/Rime.webp",
+      "altText": "Rime"
+    },
+    "title": "Russel Joins the Stream",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/Tenzime.webp",
+      "altText": "Tenzime"
+    },
+    "title": "Tenzin Joins the Stream",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/3Ton.webp",
+      "altText": "3Ton"
+    },
+    "title": "Zoil Joins the Stream",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/OOOO.webp",
+      "altText": "OOOO"
+    },
+    "title": "Police Chase",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/Huell.webp",
+      "altText": "Huell"
+    },
+    "title": "Britt is \"Busy\"",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/Teslime.webp",
+      "altText": "Teslime"
+    },
+    "title": "Talks About His Toy Car",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/Lamon.webp",
+      "altText": "Lamon"
+    },
+    "title": "Calls Someone a \"Bitch\" or \"Pussy\"",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/emoneyBased.png",
+      "altText": "emoneyBased"
+    },
+    "title": "Shit Talking LunnPHS",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/4Love.webp",
+      "altText": "4Love"
+    },
+    "title": "Chat is Wholesome to Macaiyla",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/Susge.webp",
+      "altText": "Susge"
+    },
+    "title": "Ludwig Suspect in Chat",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/4Ton.webp",
+      "altText": "4Ton"
+    },
+    "title": "Axion Stream Snipes",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/OOOO.webp",
+      "altText": "OOOO"
+    },
+    "title": "Gameplay Highlight Link in Chat",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/LimeD.webp",
+      "altText": "LimeD"
+    },
+    "title": "\"See you at Twitch Con\"",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/OkayChamp.webp",
+      "altText": "OkayChamp"
+    },
+    "title": "NOW",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/chicken.png",
+      "altText": "chicken emoji"
+    },
+    "title": "Britt Cluck",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/AIRWICK.webp",
+      "altText": "AIRWICK"
+    },
+    "title": "Britt Nagging",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/peepoRiot.webp",
+      "altText": "peepoRiot"
+    },
+    "title": "Chat Riot",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/heCrazy.webp",
+      "altText": "heCrazy"
+    },
+    "title": "Someone Wins a !dayoff Raffle",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/mlady.webp",
+      "altText": "mlady"
+    },
+    "title": "Erobb221ComeToAustralia Dick Riding",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/Lemao.webp",
+      "altText": "Lemao"
+    },
+    "title": "Mods Being Authoritarian",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/Pain.webp",
+      "altText": "Pain"
+    },
+    "title": "Early Stream",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/MODS.webp",
+      "altText": "MODS"
+    },
+    "title": "Helpers in Chat",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/Regret.webp",
+      "altText": "Regret"
+    },
+    "title": "Britt Brings Erobb Food",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/Weirdo.webp",
+      "altText": "Weirdo"
+    },
+    "title": "Coomer Link in Chat",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/CUBE.webp",
+      "altText": "CUBE"
+    },
+    "title": "....",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/Lemon.webp",
+      "altText": "Lemon"
+    },
+    "title": "CuckLocke Time",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/heCrazy.webp",
+      "altText": "heCrazy"
+    },
+    "title": "Marbles Stream",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/Texime.webp",
+      "altText": "Texime"
+    },
+    "title": "Sponsor Time",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/StopBigJ.webp",
+      "altText": "StopBigJ"
+    },
+    "title": "\"Could You Take a 14inch...\"",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/widepeepoSad.webp",
+      "altText": "widepeepoSad"
+    },
+    "title": "Disaster Stream",
     "clicked": false
   }
 ]
