@@ -1,8 +1,8 @@
 This extension allows users to play a bingo game about the streamer [STREAMER].
 
-I submitted an Obfuscation Intake Request form because the build is not human-readable. The ZIP file attached to that form is the extension code.
-
 The overlay uses a built-in chatbot to display the bingo board.
+
+ChangeLog:
 
 Chatbot Commands:
 
