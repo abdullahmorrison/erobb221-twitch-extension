@@ -12,30 +12,26 @@ export default function App(){
   const [command, setCommand] = useChatCommand()
   React.useEffect(() => {
     if (command === 'bingo') {
-      setIsOverlayVisible(true)
-      setIsExtensionOpen(true)
-      hideOverlay(2)
+      showOverlay(2)
       setCommand('')
     }
   }, [command])
 
-  const hideOverlay = (seconds: number) => {
+  const showOverlay = (seconds: number) => {
+    setIsOverlayVisible(true)
+    if(sleepTimer.current) clearTimeout(sleepTimer.current)
+
     sleepTimer.current = setTimeout(() => {
       setIsOverlayVisible(false)
+      setIsExtensionOpen(false)
     }, seconds*1000)
-  }
-  const showOverlay = () => {
-    if (sleepTimer.current) {
-      clearTimeout(sleepTimer.current)
-    }
-    setIsOverlayVisible(true)
   }
 
   return (
     <div
       className={styles.app}
-      onMouseMove={showOverlay}
-      onMouseLeave={()=>hideOverlay(1)}
+      onMouseMove={()=>showOverlay(5)}
+      onMouseLeave={()=>setIsOverlayVisible(false)}
       onClick={(event)=>isExtensionOpen && event.target == event.currentTarget? setIsExtensionOpen(false) : null}
     >
       <Overlay
