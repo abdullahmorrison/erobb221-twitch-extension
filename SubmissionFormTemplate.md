@@ -4,6 +4,9 @@ The overlay uses a built-in chatbot to display the bingo board.
 
 ChangeLog:
 
+- Added more tiles to the bingo board
+- Overlay sleeps when cursor is idle for 5 seconds on the overlay
+
 Chatbot Commands:
 
 - !bingo: opens the overlay bingo board
