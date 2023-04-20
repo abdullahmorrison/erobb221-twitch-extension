@@ -454,5 +454,29 @@
     },
     "title": "Disaster Stream",
     "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/LowTierLove.webp",
+      "altText": "LowTierLove"
+    },
+    "title": "xQc Viewer in Chat",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/HELP.webp",
+      "altText": "HELP"
+    },
+    "title": "Police Siren",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/Lamonting.webp",
+      "altText": "Lamonting"
+    },
+    "title": "Chat Sexualizes Lamont",
+    "clicked": false
   }
 ]
