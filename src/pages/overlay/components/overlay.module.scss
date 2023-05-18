@@ -84,14 +84,14 @@ $widths: (
     }
   }
 
-  .openExtensionButton{
+  .bingoTab{
     border-radius: 0 5px 5px 0;
     background-color: $primary-color;
     box-shadow: 0 2px 4px black;
     position: relative;
     transition: width 0.1s ease-in-out ;
 
-    height: 200px;
+    height: 100px;
     width: 15px;
 
     &:hover{
@@ -101,7 +101,7 @@ $widths: (
       content: '';
       position: absolute;
       transform: rotate(-90deg);
-      top: 50%;
+      top: calc(50% - 3px);
       right: calc(50% - 14px);
 
       width: 0;
@@ -111,7 +111,7 @@ $widths: (
       border-top: 10px solid black;
     }
   }
-  .hideOpenExtensionButton{
+  .hideBingoTab{
     width: 0;
     border: none;
     &::after{

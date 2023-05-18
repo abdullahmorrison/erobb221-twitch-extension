@@ -30,7 +30,7 @@ export default function Overlay(props: OverlayProps){
         <span className={styles.credits}>Made by @AbdullahMorrison</span>
       </main>
 
-      <button className={`${styles.openExtensionButton} ${props.isOverlayVisible? null : styles.hideOpenExtensionButton}`} onClick={() => props.setIsExtensionOpen(!props.isExtensionOpen)}></button>
+      <button className={`${styles.bingoTab} ${props.isOverlayVisible? undefined : styles.hideBingoTab}`} onClick={() => props.setIsExtensionOpen(!props.isExtensionOpen)}></button>
     </div>
   )
 }
