@@ -1,0 +1,37 @@
+.tomato, .tomatoSplatter {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.tomato{
+  background-image: url('../../../../assets/imgs/tomato.png');
+  animation: throwTomato 0.5s linear;
+  //center transform origin
+}
+.tomatoSplatter{
+  background-image: url('../../../../assets/imgs/tomato-splat.png');
+}
+
+@keyframes throwTomato {
+   0% {
+    left: 100%;
+    // transform: rotateZ(0deg);
+  }
+  50%{
+    width: 100px;
+  }
+  100% {
+    width: 50px;
+    transform: rotateZ(760deg);
+  }
+}
+@keyframes fadeAway {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
