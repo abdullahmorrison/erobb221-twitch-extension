@@ -1,43 +1,43 @@
-import React from 'react'
-import Overlay from './components/overlay'
+import React, { useState, useEffect, useCallback } from 'react'
+import BingoGame from './components/BingoGame/BingoGame'
 import useChatCommand from './chatCommand'
 
 import styles from './app.module.css'
 
 export default function App(){
-  const [isOverlayVisible, setIsOverlayVisible] = React.useState(false)
-  const [isExtensionOpen, setIsExtensionOpen] = React.useState(false)
+  const [isBingoGameVisible, setIsBingoGameVisible] = React.useState(false)
+  const [isBingoGameOpen, setIsBingoGameOpen] = React.useState(false)
   const sleepTimer = React.useRef<NodeJS.Timeout | undefined>(undefined)
-
   const [command, setCommand] = useChatCommand()
-  React.useEffect(() => {
+
+  useEffect(() => {
     if (command === 'bingo') {
-      showOverlay(2)
+      showBingoGame(2)
       setCommand('')
     }
   }, [command])
 
-  const showOverlay = (seconds: number) => {
-    setIsOverlayVisible(true)
+  const showBingoGame = useCallback((seconds: number) => {
+    setIsBingoGameVisible(true)
     if(sleepTimer.current) clearTimeout(sleepTimer.current)
 
     sleepTimer.current = setTimeout(() => {
-      setIsOverlayVisible(false)
-      setIsExtensionOpen(false)
+      setIsBingoGameVisible(false)
+      setIsBingoGameOpen(false)
     }, seconds*1000)
-  }
+  }, [])
 
   return (
     <div
       className={styles.app}
-      onMouseMove={()=>showOverlay(5)}
-      onMouseLeave={()=>setIsOverlayVisible(false)}
-      onClick={(event)=>isExtensionOpen && event.target == event.currentTarget? setIsExtensionOpen(false) : null}
+      onMouseMove={()=>showBingoGame(5)}
+      onMouseLeave={()=>setIsBingoGameVisible(false)}
+      onClick={(event)=>isBingoGameOpen && event.target == event.currentTarget? setIsBingoGameOpen(false) : null}
     >
-      <Overlay
-        isOverlayVisible={isOverlayVisible}
-        isExtensionOpen={isExtensionOpen}
-        setIsExtensionOpen={setIsExtensionOpen}
+      <BingoGame
+        isBingoTabVisible={isBingoGameVisible}
+        isBingoGameOpen={isBingoGameOpen}
+        setIsBingoGameOpen={setIsBingoGameOpen}
       />
     </div>
   )

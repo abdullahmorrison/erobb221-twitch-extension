@@ -1,4 +1,4 @@
-@use '../../../variables.scss' as *;
+@use '../../../../variables.scss' as *;
 @use 'sass:map';
 
 $widths: (
@@ -8,14 +8,13 @@ $widths: (
 );
 
 .closed{//overlay position when closed
-  //
   left: (map-get($widths, (normal-width)) + 5) * -1;
   @media screen and (max-height: map-get($breakpoints, m)){ left: (map-get($widths, (small-width)) + 5) * -1; }
   @media screen and (max-height: map-get($breakpoints, s)){ left: (map-get($widths, (smaller-width)) + 5) * -1; }
 }
 .open{//overlay position when opened
   left: 0;
-  .openExtensionButton::after{
+  .bingoTab::after{
     transform: rotate(90deg) !important; //flip the arrow to point to the left once clicked
   }
 }
