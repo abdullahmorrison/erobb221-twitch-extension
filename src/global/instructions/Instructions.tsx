@@ -28,7 +28,7 @@ export default function Instructions(props: InstructionsProps){
         <hr />
 
         <p>
-          <a href={"https://github.com/abdullahmorrison/BingoTwitchExtension/tree/"+streamer.name} target="_blank">
+          <a href="https://github.com/abdullahmorrison/Erobb221TwitchExtension" target="_blank">
             View Git Repo
           </a>
         </p>

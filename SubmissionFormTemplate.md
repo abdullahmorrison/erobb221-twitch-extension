@@ -18,7 +18,7 @@ External Links:
 Allowlist explanations:
 
 - wss://irc-ws.chat.twitch.tv:443, ws://irc-ws.chat.twitch.tv:80, irc://irc.chat.twitch.tv:6667, irc://irc.chat.twitch.tv:6697: urls the the chatbot connects to.
-- https://github.com/abdullahmorrison/BingoTwitchExtension/tree/erobb221
+- https://github.com/abdullahmorrison/Erobb221TwitchExtension
 
 Testing the Extension:
 
