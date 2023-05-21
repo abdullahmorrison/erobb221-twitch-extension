@@ -13,6 +13,10 @@
 .tomatoSplatter{
   background-image: url('../../../../assets/imgs/tomato-splat.png');
 }
+.fadeAway{
+  opacity: 0;
+  transition: opacity 0.5s linear;
+}
 
 @keyframes throwTomato {
    0% {
@@ -25,13 +29,5 @@
   100% {
     width: 50px;
     transform: rotateZ(760deg);
-  }
-}
-@keyframes fadeAway {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
   }
 }

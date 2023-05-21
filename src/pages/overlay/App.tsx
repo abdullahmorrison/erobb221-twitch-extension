@@ -38,12 +38,30 @@ export default function App(){
 
 
   const [tomatoes, setTomatoes] = useState<TomatoType[]>([])
+
+  useEffect(() => {
+    if(tomatoTimer === 0){
+      // fade away all tomatoes
+      setTomatoes(tomatoes => tomatoes.map(tomato => {
+        return {
+          ...tomato,
+          fadeAway: true
+        }
+      }))
+      // remove all tomatoes after fade away
+      setTimeout(() => {
+        setTomatoes([])
+      }, 500)
+    }
+  }, [tomatoTimer])
+
   const throwTomato = useCallback(() => {
     const newTomato: TomatoType = {
       x: Math.random()*100,
       y: Math.random()*100,
       rotate: Math.random()*360,
-      splatter: false
+      splatter: false,
+      fadeAway: false
     }
 
     setTomatoes(prev => [...prev, newTomato])
