@@ -7,23 +7,21 @@ import { commands } from './commands'
 
 import styles from './app.module.css'
 
-
 export default function App(){
   const [isBingoTabVisible, setIsBingoTabVisible] = React.useState(false)
   const [isBingoGameOpen, setIsBingoGameOpen] = React.useState(false)
   const [isCursorVisible, setIsCursorVisible] = useState(true) // hiding the cursor when the mouse is idle on the screen
 
-  const [command, setCommand] = useChatCommand()
+  const [command, tomatoTimer, nullifyCommand] = useChatCommand()
   const sleepTimer = React.useRef<NodeJS.Timeout | undefined>(undefined)
 
   useEffect(() => {
-    if (command === commands.showBingoGame) {
+    if (command === commands.showBingoGame) {//show the bingo game for 2 seconds
       showBingoGame(2)
-      setCommand(commands.null)
-    }else if(command === commands.throwTomato) {
+    }else if(command === commands.throwTomato) {//throw a tomato
       throwTomato()
-      setCommand(commands.null)
     }
+    nullifyCommand()
   }, [command])
 
   const showBingoGame = useCallback((seconds: number) => {
@@ -75,6 +73,9 @@ export default function App(){
         isBingoGameOpen={isBingoGameOpen}
         setIsBingoGameOpen={setIsBingoGameOpen}
       />
+      <div className={styles.countDownTimer}>
+        {tomatoTimer} seconds
+      </div>
     </div>
   )
 }

@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import tmi, { ChatUserstate } from 'tmi.js'
 import Streamer from '../../assets/streamer.json'
 import { commands } from './commands'
 
 export default function chatCommand(){
   const [command, setCommand] = React.useState('')
+  const [tomatoTimer, setTomatoTimer] = React.useState(0)
+  const timer = React.useRef<NodeJS.Timeout | null>(null)
   const [client] = React.useState(new tmi.Client({
     connection: {
       secure: true,
@@ -17,16 +19,9 @@ export default function chatCommand(){
   }))
 
 
-  const tomatoTimer = React.useRef<NodeJS.Timeout | undefined>(undefined)
-  useEffect(() => {
-    return () => {
-      if(tomatoTimer.current) clearTimeout(tomatoTimer.current)
-    }
-  }, [])
-
-   const messageHandler = React.useCallback((channel: string, tags: ChatUserstate, msg: string, self: boolean) => {
+  const messageHandler = useCallback((channel: string, tags: ChatUserstate, msg: string, self: boolean) => {
     //if tomatoTimer is running and the msg contains the word "TomatoTime"
-    if(tomatoTimer.current && msg.includes('TomatoTime')) {
+    if(timer.current && msg.includes('TomatoTime')) {
       setCommand(commands.throwTomato)
       return
     }
@@ -38,22 +33,32 @@ export default function chatCommand(){
 
     const command = msg.trim().toLowerCase().slice(1)
     if(command === commands.showBingoGame) setCommand(command)
-    else if(command === commands.throwTomato){
-      console.log('throwing tomatoes')
-      if(tomatoTimer.current) clearTimeout(tomatoTimer.current)
-      tomatoTimer.current = setTimeout(() => setCommand(''), 15*1000)
-    }else if(command === commands.cancel){
-      console.log('canceling tomatoes')
-      if(tomatoTimer.current) clearTimeout(tomatoTimer.current)
-      setCommand('')
+    else if(command === commands.cancel){
+      setCommand(commands.null)
+    }else if(command === commands.startThrowing) {//start the count down timer to be able to throw tomatoes
+      if(timer.current) return
+
+      const seconds = 10
+      setTomatoTimer(seconds)
+      timer.current = setInterval(() => {
+        setTomatoTimer(prev => prev-1)
+      }, 1000)
+      setTimeout(() => {
+        clearInterval(timer.current as NodeJS.Timeout)
+        timer.current = null
+      }, seconds*1000)
     }
   }, [])
 
-  const connectedHandler = React.useCallback(() => {
+  const connectedHandler = useCallback(() => {
     console.log('*Twitch extension is connected to chat*')
   }, [])
 
-  React.useEffect(() => {
+  const nullifyCommand = useCallback(() => {
+    setCommand(commands.null)
+  }, [])
+
+  useEffect(() => {
     client.addListener('message', messageHandler)
     client.on('connected', connectedHandler)
     client.connect()
@@ -64,5 +69,5 @@ export default function chatCommand(){
   }, [client, messageHandler, connectedHandler])
 
 
-  return [command, setCommand] as const
+  return [command, tomatoTimer, nullifyCommand] as const
 }
