@@ -32,21 +32,32 @@ export default function chatCommand(){
     if (self || !msg.trim().startsWith('!')) return
 
     const command = msg.trim().toLowerCase().slice(1)
-    if(command === commands.showBingoGame) setCommand(command)
-    else if(command === commands.cancel){
-      setCommand(commands.null)
-    }else if(command === commands.startThrowing) {//start the count down timer to be able to throw tomatoes
-      if(timer.current) return
+    switch (command) {
+      case commands.showBingoGame:
+        setCommand(command)
+        break
+      case commands.startThrowing: //start the count down timer to be able to throw tomatoes
+        if(timer.current) return
 
-      const seconds = 10
-      setTomatoTimer(seconds)
-      timer.current = setInterval(() => {
-        setTomatoTimer(prev => prev-1)
-      }, 1000)
-      setTimeout(() => {
-        clearInterval(timer.current as NodeJS.Timeout)
-        timer.current = null
-      }, seconds*1000)
+        const seconds = 10
+        setTomatoTimer(seconds)
+        timer.current = setInterval(() => {
+          setTomatoTimer(prev => prev-1)
+        }, 1000)
+        setTimeout(() => {
+          clearInterval(timer.current as NodeJS.Timeout)
+          timer.current = null
+        }, seconds*1000)
+        break
+      case commands.cancel: //cancel the count down timer
+        if(timer.current) {
+          clearInterval(timer.current)
+          timer.current = null
+          setTomatoTimer(0)
+        }
+        break
+      default:
+        break
     }
   }, [])
 
