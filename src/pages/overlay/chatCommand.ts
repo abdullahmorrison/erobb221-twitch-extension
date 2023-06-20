@@ -7,14 +7,15 @@ export default function chatCommand(){
   const [command, setCommand] = React.useState('')
   const [tomatoTimer, setTomatoTimer] = React.useState(0)
   const timer = React.useRef<NodeJS.Timeout | null>(null)
+  const channel = Streamer.name
+  // const channel = 'AbdullahMorrison' //! For testing purposes
   const [client] = React.useState(new tmi.Client({
     connection: {
       secure: true,
       reconnect: true
     },
     channels: [
-      // 'AbdullahMorrison', //! For testing purposes
-      Streamer.name
+      channel
     ]
   }))
 
@@ -39,7 +40,7 @@ export default function chatCommand(){
       case commands.startThrowing: //start the count down timer to be able to throw tomatoes
         if(timer.current) return
 
-        const seconds = 10
+        const seconds = 30
         setTomatoTimer(seconds)
         timer.current = setInterval(() => {
           setTomatoTimer(prev => prev-1)
@@ -59,23 +60,24 @@ export default function chatCommand(){
       default:
         break
     }
-  }, [])
+  }, [command])
 
   const connectedHandler = useCallback(() => {
-    console.log('*Twitch extension is connected to chat*')
+    console.log('%cExtension Connected to '+channel+'\'s Twitch Channel', 'color: purple; font-weight: bold; font-size: 20px')
   }, [])
 
   const nullifyCommand = useCallback(() => {
     setCommand(commands.null)
-  }, [])
+  }, [command])
 
   useEffect(() => {
     client.addListener('message', messageHandler)
-    client.on('connected', connectedHandler)
+    client.addListener('connected', connectedHandler)
     client.connect()
 
     return () => {
-      client.removeListener('message', messageHandler)
+      client.removeAllListeners()
+      client.disconnect()
     }
   }, [client, messageHandler, connectedHandler])
 
