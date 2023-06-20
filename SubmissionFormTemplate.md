@@ -4,13 +4,12 @@ The overlay uses a built-in chatbot to display the bingo board.
 
 ChangeLog:
 
-- Made the tab to open the bingo board in the overlay smaller
-- Chat can now throw tomatoes at the screen for 15 seconds when a mod types !startthrowing and chat types TomatoTime
+- changed timer to throw tomatoes at the screen from 15 seconds to 30 seconds
 
 Chatbot Commands:
 
 - !bingo: opens the overlay bingo board
-- !startthrowing: 15 second timer starts that allows chat to throw virtual tomatoes at the screen by typing TomatoTime
+- !startthrowing: 30 second timer starts that allows chat to throw virtual tomatoes at the screen by typing TomatoTime
 
 External Links:
 
