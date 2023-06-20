@@ -48,6 +48,7 @@ export default function chatCommand(){
         setTimeout(() => {
           clearInterval(timer.current as NodeJS.Timeout)
           timer.current = null
+          setTomatoTimer(0)
         }, seconds*1000)
         break
       case commands.cancel: //cancel the count down timer
