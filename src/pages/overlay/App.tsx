@@ -36,10 +36,8 @@ export default function App(){
     }, seconds*1000)
   }, [])
 
-
   const [tomatoes, setTomatoes] = useState<TomatoType[]>([])
-
-  useEffect(() => {
+  useEffect(() => {// Fade away all tomatoes when the timer is 0
     if(tomatoTimer === 0){
       // fade away all tomatoes
       setTomatoes(tomatoes => tomatoes.map(tomato => {
@@ -91,8 +89,11 @@ export default function App(){
         isBingoGameOpen={isBingoGameOpen}
         setIsBingoGameOpen={setIsBingoGameOpen}
       />
-      <div className={styles.countDownTimer}>
-        {tomatoTimer} seconds
+      <div
+        className={styles.countDownTimer}
+        style={{display: tomatoTimer === 0 ? 'none' : undefined}}
+      >
+        {tomatoTimer}
       </div>
     </div>
   )
