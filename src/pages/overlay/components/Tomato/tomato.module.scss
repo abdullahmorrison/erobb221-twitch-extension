@@ -8,7 +8,6 @@
 .tomato{
   background-image: url('../../../../assets/imgs/tomato.png');
   animation: throwTomato 0.5s linear;
-  //center transform origin
 }
 .tomatoSplatter{
   background-image: url('../../../../assets/imgs/tomato-splat.png');
@@ -21,7 +20,6 @@
 @keyframes throwTomato {
    0% {
     left: 100%;
-    // transform: rotateZ(0deg);
   }
   50%{
     width: 100px;
