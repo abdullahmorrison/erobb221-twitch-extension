@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
+import HideExtensionModal from './components/HideExtensionModal/HideExtensionModal'
 import BingoGame from './components/BingoGame/BingoGame'
 import Tomato from './components/Tomato/Tomato'
 import { Tomato as TomatoType } from './components/Tomato/types'
@@ -8,6 +9,9 @@ import { commands } from './commands'
 import styles from './app.module.css'
 
 export default function App(){
+  const [isExtensionHidden, setIsExtensionHidden] = useState(false)
+  const [showHideExtensionModal, setShowHideExtensionModal] = useState(false)
+
   const [isBingoTabVisible, setIsBingoTabVisible] = React.useState(false)
   const [isBingoGameOpen, setIsBingoGameOpen] = React.useState(false)
   const [isCursorVisible, setIsCursorVisible] = useState(true) // hiding the cursor when the mouse is idle on the screen
@@ -23,6 +27,12 @@ export default function App(){
     }
     nullifyCommand()
   }, [command])
+
+  const handleClick = useCallback((event: any) => {
+    // if user does alt + shift + left-click on screen, show the hide extension modal
+    if(event.altKey && event.shiftKey && event.button === 0) setShowHideExtensionModal(true)
+    if(isBingoGameOpen && event.target == event.currentTarget) setIsBingoGameOpen(false)
+  }, [])
 
   const showBingoGame = useCallback((seconds: number) => {
     setIsCursorVisible(true)
@@ -81,8 +91,13 @@ export default function App(){
       className={`${styles.app} ${isCursorVisible? undefined : styles.cursorHidden}`}
       onMouseMove={()=>showBingoGame(5)}
       onMouseLeave={()=>setIsBingoTabVisible(false)}
-      onClick={(event)=>isBingoGameOpen && event.target == event.currentTarget? setIsBingoGameOpen(false) : null}
+      onClick={(event)=>handleClick(event)}
     >
+      <HideExtensionModal
+        showHideExtensionModal={showHideExtensionModal}
+        hideExtension={() => setIsExtensionHidden(true)}
+        cancel={() => setShowHideExtensionModal(false)}
+      />
       <Tomato tomatoes={tomatoes}/>
       <BingoGame
         isBingoTabVisible={isBingoTabVisible}
