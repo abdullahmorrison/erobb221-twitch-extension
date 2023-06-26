@@ -2,6 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react'
 import BingoGame from './components/BingoGame/BingoGame'
 import Tomato from './components/Tomato/Tomato'
 import { Tomato as TomatoType } from './components/Tomato/types'
+import BlurBox from './components/BlurBox/BlurBox'
+
 import useChatCommand from './chatCommand'
 import { commands } from './commands'
 
@@ -83,6 +85,7 @@ export default function App(){
       onMouseLeave={()=>setIsBingoTabVisible(false)}
       onClick={(event)=>isBingoGameOpen && event.target == event.currentTarget? setIsBingoGameOpen(false) : null}
     >
+      <BlurBox/>
       <Tomato tomatoes={tomatoes}/>
       <BingoGame
         isBingoTabVisible={isBingoTabVisible}
