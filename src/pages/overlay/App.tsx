@@ -30,11 +30,18 @@ export default function App(){
 
   const handleClick = useCallback((event: any) => {
     // if user does alt + shift + left-click on screen, show the hide extension modal
-    if(event.altKey && event.shiftKey && event.button === 0) setShowHideExtensionModal(true)
-    if(isBingoGameOpen && event.target == event.currentTarget) setIsBingoGameOpen(false)
-  }, [])
+    if(event.altKey && event.shiftKey && event.button === 0) {
+      if(isExtensionHidden == false)
+        setShowHideExtensionModal(true)
+      else
+        setIsExtensionHidden(false)
+    }
+    else if(isBingoGameOpen && event.target == event.currentTarget) setIsBingoGameOpen(false)
+  }, [isBingoGameOpen, isExtensionHidden])
 
   const showBingoGame = useCallback((seconds: number) => {
+    if(isExtensionHidden == true) return // if the user has hidden the extension, don't show the bingo game
+
     setIsCursorVisible(true)
     setIsBingoTabVisible(true)
     if(sleepTimer.current) clearTimeout(sleepTimer.current)
@@ -44,10 +51,12 @@ export default function App(){
       setIsBingoTabVisible(false)
       setIsBingoGameOpen(false)
     }, seconds*1000)
-  }, [])
+  }, [isExtensionHidden])
 
   const [tomatoes, setTomatoes] = useState<TomatoType[]>([])
   useEffect(() => {// Fade away all tomatoes when the timer is 0
+    if(isExtensionHidden) return // if the user has hidden the extension, don't show the tomatoes
+
     if(tomatoTimer === 0){
       // fade away all tomatoes
       setTomatoes(tomatoes => tomatoes.map(tomato => {
@@ -61,9 +70,11 @@ export default function App(){
         setTomatoes([])
       }, 500)
     }
-  }, [tomatoTimer])
+  }, [tomatoTimer, isExtensionHidden])
 
   const throwTomato = useCallback(() => {
+    if(isExtensionHidden) return // if the user has hidden the extension, don't show the tomatoes
+
     const newTomato: TomatoType = {
       x: Math.random()*100,
       y: Math.random()*100,
@@ -84,7 +95,7 @@ export default function App(){
         return tomato
       }))
     }, 500)
-  }, [])
+  }, [isExtensionHidden])
 
   return (
     <div
@@ -95,7 +106,13 @@ export default function App(){
     >
       <HideExtensionModal
         showHideExtensionModal={showHideExtensionModal}
-        hideExtension={() => setIsExtensionHidden(true)}
+        hideExtension={() => {
+          setTomatoes([])
+          setIsBingoGameOpen(false)
+          setIsBingoTabVisible(false)
+          setShowHideExtensionModal(false)
+          setIsExtensionHidden(true)
+        }}
         cancel={() => setShowHideExtensionModal(false)}
       />
       <Tomato tomatoes={tomatoes}/>
@@ -106,7 +123,7 @@ export default function App(){
       />
       <div
         className={styles.countDownTimer}
-        style={{display: tomatoTimer === 0 ? 'none' : undefined}}
+        style={{display: isExtensionHidden || tomatoTimer === 0 ? 'none' : undefined}}
       >
         {tomatoTimer}
       </div>

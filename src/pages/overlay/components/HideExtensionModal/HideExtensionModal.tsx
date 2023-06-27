@@ -8,9 +8,11 @@ interface HideExtensionModalProps {
 }
 export default function HideExtensionModal(props: HideExtensionModalProps) {
   return (
-    <div className={`${styles.container} ${props.showHideExtensionModal? undefined : styles.hidden}`}>
+    <div className={`${styles.container} ${props.showHideExtensionModal? undefined : styles.hidden}`}
+      onClick={(event)=>event.target == event.currentTarget? props.cancel() : null}
+    >
       <div className={styles.modal}>
-        <span className={styles.close}>&times;</span>
+        <span className={styles.close} onClick={props.cancel}>&times;</span>
         <div className={styles.title}>Are You Sure You Want To Hide The Extension?</div>
         <div className={styles.description}>
           <p>
@@ -25,8 +27,8 @@ export default function HideExtensionModal(props: HideExtensionModalProps) {
           </p>
         </div>
         <div className={styles.buttonContainer}>
-          <button className={`${styles.button} ${styles.confirm}`}>Hide</button>
-          <button className={styles.button}>Cancel</button>
+          <button className={`${styles.button} ${styles.confirm}`} onClick={props.hideExtension}>Hide</button>
+          <button className={styles.button} onClick={props.cancel}>Cancel</button>
         </div>
       </div>
     </div>
