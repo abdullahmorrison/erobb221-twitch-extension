@@ -25,6 +25,17 @@ export default function App(){
     nullifyCommand()
   }, [command])
 
+  //get isExtensionHidden from local storage
+  useEffect(() => {
+    const isExtensionHidden = localStorage.getItem('isExtensionHidden')
+    if(isExtensionHidden === null || JSON.parse(isExtensionHidden) === false) return
+    dispatch({type: actions.HIDE_EXTENSION})
+  }, [])
+  //save isExtensionHidden to local storage
+  useEffect(() => {
+    localStorage.setItem('isExtensionHidden', JSON.stringify(state.isExtensionHidden))
+  }, [state.isExtensionHidden])
+
   const handleClick = useCallback((event: any) => {
     // if user does alt + shift + left-click on screen, show the hide extension modal
     if(event.altKey && event.shiftKey && event.button === 0)
