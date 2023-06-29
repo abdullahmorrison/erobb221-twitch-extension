@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useReducer } from 'react'
 import HideExtensionModal from './components/HideExtensionModal/HideExtensionModal'
 import BingoGame from './components/BingoGame/BingoGame'
 import Tomato from './components/Tomato/Tomato'
@@ -7,18 +7,15 @@ import useChatCommand from './chatCommand'
 import { commands } from './commands'
 
 import styles from './app.module.css'
+import { actions, initialState, reducer } from './app.reducer'
 
 export default function App(){
-  const [isExtensionHidden, setIsExtensionHidden] = useState(false)
-  const [showHideExtensionModal, setShowHideExtensionModal] = useState(false)
-
-  const [isBingoTabVisible, setIsBingoTabVisible] = React.useState(false)
-  const [isBingoGameOpen, setIsBingoGameOpen] = React.useState(false)
-  const [isCursorVisible, setIsCursorVisible] = useState(true) // hiding the cursor when the mouse is idle on the screen
+  const [state, dispatch] = useReducer(reducer, initialState)
 
   const [command, tomatoTimer, nullifyCommand] = useChatCommand()
   const sleepTimer = React.useRef<NodeJS.Timeout | undefined>(undefined)
 
+  // Handle commmands
   useEffect(() => {
     if (command === commands.showBingoGame) {//show the bingo game for 2 seconds
       showBingoGame(2)
@@ -30,52 +27,29 @@ export default function App(){
 
   const handleClick = useCallback((event: any) => {
     // if user does alt + shift + left-click on screen, show the hide extension modal
-    if(event.altKey && event.shiftKey && event.button === 0) {
-      if(isExtensionHidden == false)
-        setShowHideExtensionModal(true)
-      else
-        setIsExtensionHidden(false)
-    }
-    else if(isBingoGameOpen && event.target == event.currentTarget) setIsBingoGameOpen(false)
-  }, [isBingoGameOpen, isExtensionHidden])
+    if(event.altKey && event.shiftKey && event.button === 0)
+      dispatch({type: actions.HANDLE_ALT_SHIFT_LEFT_CLICK})
+    else if(state.isBingoGameOpen && event.target == event.currentTarget)
+      dispatch({type: actions.CLOSE_BINGO_GAME})
+  }, [state.isBingoGameOpen, state.isExtensionHidden])
 
   const showBingoGame = useCallback((seconds: number) => {
-    if(isExtensionHidden == true) return // if the user has hidden the extension, don't show the bingo game
+    dispatch({type: actions.SHOW_CURSOR})
+    if(state.isExtensionHidden == true) return
 
-    setIsCursorVisible(true)
-    setIsBingoTabVisible(true)
+    dispatch({type: actions.WAKE})
     if(sleepTimer.current) clearTimeout(sleepTimer.current)
 
-    sleepTimer.current = setTimeout(() => { // hide the cursor and the bingo game after set seconds
-      setIsCursorVisible(false)
-      setIsBingoTabVisible(false)
-      setIsBingoGameOpen(false)
+    sleepTimer.current = setTimeout(() => {
+      dispatch({type: actions.SLEEP})
+      dispatch({type: actions.HIDE_CURSOR})
     }, seconds*1000)
-  }, [isExtensionHidden])
-
-  const [tomatoes, setTomatoes] = useState<TomatoType[]>([])
-  useEffect(() => {// Fade away all tomatoes when the timer is 0
-    if(isExtensionHidden) return // if the user has hidden the extension, don't show the tomatoes
-
-    if(tomatoTimer === 0){
-      // fade away all tomatoes
-      setTomatoes(tomatoes => tomatoes.map(tomato => {
-        return {
-          ...tomato,
-          fadeAway: true
-        }
-      }))
-      // remove all tomatoes after fade away
-      setTimeout(() => {
-        setTomatoes([])
-      }, 500)
-    }
-  }, [tomatoTimer, isExtensionHidden])
+  }, [state.isExtensionHidden])
 
   const throwTomato = useCallback(() => {
-    if(isExtensionHidden) return // if the user has hidden the extension, don't show the tomatoes
+    if(state.isExtensionHidden) return
 
-    const newTomato: TomatoType = {
+    const tomato: TomatoType = {
       x: Math.random()*100,
       y: Math.random()*100,
       rotate: Math.random()*360,
@@ -83,47 +57,47 @@ export default function App(){
       fadeAway: false
     }
 
-    setTomatoes(prev => [...prev, newTomato])
+    dispatch({type: actions.THROW_TOMATO, payload: tomato})
+
     setTimeout(() => {
-      setTomatoes(tomatoes => tomatoes.map(tomato => {
-        if(tomato === newTomato) {
-          return {
-            ...tomato,
-            splatter: true
-          }
-        }
-        return tomato
-      }))
+      dispatch({type: actions.SPLATTER_TOMATO, payload: tomato})
     }, 500)
-  }, [isExtensionHidden])
+  }, [state.isExtensionHidden])
+
+  // Fade away all tomatoes when the timer is 0
+  useEffect(() => {
+    if(state.isExtensionHidden) return
+
+    if(tomatoTimer === 0){
+      dispatch({type: actions.FADE_AWAY_TOMATOES})
+      setTimeout(() => {
+        dispatch({type: actions.REMOVE_TOMATOES})
+      }, 500)
+    }
+  }, [tomatoTimer, state.isExtensionHidden])
 
   return (
     <div
-      className={`${styles.app} ${isCursorVisible? undefined : styles.cursorHidden}`}
+      className={`${styles.app} ${state.isCursorVisible? undefined : styles.cursorHidden}`}
       onMouseMove={()=>showBingoGame(5)}
-      onMouseLeave={()=>setIsBingoTabVisible(false)}
+      onMouseLeave={()=>dispatch({type: actions.SLEEP})}
       onClick={(event)=>handleClick(event)}
     >
       <HideExtensionModal
-        showHideExtensionModal={showHideExtensionModal}
-        hideExtension={() => {
-          setTomatoes([])
-          setIsBingoGameOpen(false)
-          setIsBingoTabVisible(false)
-          setShowHideExtensionModal(false)
-          setIsExtensionHidden(true)
-        }}
-        cancel={() => setShowHideExtensionModal(false)}
+        showHideExtensionModal={state.showHideExtensionModal}
+        hideExtension={()=>dispatch({type: actions.HIDE_EXTENSION})}
+        cancel={() => dispatch({type: actions.CANCEL_HIDE_EXTENSION})}
       />
-      <Tomato tomatoes={tomatoes}/>
+      <Tomato tomatoes={state.tomatoes}/>
       <BingoGame
-        isBingoTabVisible={isBingoTabVisible}
-        isBingoGameOpen={isBingoGameOpen}
-        setIsBingoGameOpen={setIsBingoGameOpen}
+        isBingoTabVisible={state.isBingoTabVisible}
+        isBingoGameOpen={state.isBingoGameOpen}
+        openBingoGame={() => dispatch({type: actions.OPEN_BINGO_GAME})}
+        closeBingoGame={() => dispatch({type: actions.CLOSE_BINGO_GAME})}
       />
       <div
         className={styles.countDownTimer}
-        style={{display: isExtensionHidden || tomatoTimer === 0 ? 'none' : undefined}}
+        style={{display: state.isExtensionHidden || tomatoTimer === 0 ? 'none' : undefined}}
       >
         {tomatoTimer}
       </div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useReducer } from 'react'
 import styles from './bingoGame.module.css'
 
 import Board from '../../../../global/board/Board'
@@ -9,7 +9,8 @@ import Streamer from '../../../../assets/streamer.json'
 interface BingoGameProps {
   isBingoTabVisible: boolean
   isBingoGameOpen: boolean
-  setIsBingoGameOpen: (open: boolean) => void
+  openBingoGame: () => void
+  closeBingoGame: () => void
 }
 export default function BingoGame(props: BingoGameProps){
   const [isInstructionsOpen, setIsInstructionsOpen] = React.useState(false)
@@ -30,7 +31,7 @@ export default function BingoGame(props: BingoGameProps){
         <span className={styles.credits}>Made by @AbdullahMorrison</span>
       </main>
 
-      <button className={`${styles.bingoTab} ${props.isBingoTabVisible? undefined : styles.hideBingoTab}`} onClick={() => props.setIsBingoGameOpen(!props.isBingoGameOpen)}></button>
+      <button className={`${styles.bingoTab} ${props.isBingoTabVisible? undefined : styles.hideBingoTab}`} onClick={props.isBingoGameOpen ? props.closeBingoGame : props.openBingoGame}></button>
     </div>
   )
 }
