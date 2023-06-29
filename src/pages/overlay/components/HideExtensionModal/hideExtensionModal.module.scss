@@ -1,0 +1,77 @@
+//pretty modal with title description and buttons
+.container{
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+  .modal{
+    background-color: #fefefe;
+    margin: 10% auto; /* Center the modal vertically and horizontally */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 5px;
+
+    .close {
+      color: #888;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .title{
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .description{
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font-size: 16px;
+
+      p{
+        margin-bottom: 10px;
+      }
+
+      .codeSnippet{
+        margin: 0 10px;
+        code{
+          background-color: #e9e9e9;
+          padding: 3px;
+          border-radius: 5px;
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+    .buttonContainer{
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 20px;
+      .button{
+        background-color: grey;
+        color: white;
+        font-weight: bold;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 10px;
+      }
+      .confirm{
+        background-color: #ff3a3a;
+      }
+    }
+  }
+}
+
+.hidden{
+    display: none;
+}
