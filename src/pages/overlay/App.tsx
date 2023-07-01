@@ -42,7 +42,7 @@ export default function App(){
     // if user does alt + shift + left-click on screen, show the hide extension modal
     if(event.altKey && event.shiftKey && event.button === 0)
       dispatch({type: actions.HANDLE_ALT_SHIFT_LEFT_CLICK})
-    else if(state.isBingoGameOpen && event.target == event.currentTarget)
+    else if(state.isBingoGameOpen && event.currentTarget === event.target.closest(`.${styles.bingoGame}`))
       dispatch({type: actions.CLOSE_BINGO_GAME})
   }, [state.isBingoGameOpen, state.isExtensionHidden])
 
