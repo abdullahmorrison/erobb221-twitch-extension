@@ -1,7 +1,5 @@
 import React, { useEffect, useRef } from 'react'
 
-import styles from './blurBox.module.css'
-
 export default function BlurBox() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const contextRef = useRef<CanvasRenderingContext2D | null>(null)
@@ -28,7 +26,7 @@ export default function BlurBox() {
     const canvasOffset = canvas.getBoundingClientRect()
     canvasOffsetX.current = canvasOffset.left
     canvasOffsetY.current = canvasOffset.top
-  }, [])
+  }, [window.innerWidth, window.innerHeight])
 
   const startDrawing = (event: React.MouseEvent<HTMLCanvasElement, MouseEvent>) => {
     //clear blur box if user does ctrl + left-click without dragging
@@ -55,7 +53,7 @@ export default function BlurBox() {
     context.strokeRect(startX.current, startY.current, x - startX.current, y - startY.current)
     context.filter = 'blur(20px)'
     context.fillRect(startX.current, startY.current, x - startX.current, y - startY.current)
-    context.fillStyle = '#e6d5b8'
+    context.fillStyle = 'grey'
   }
 
   const stopDrawing = () => {
