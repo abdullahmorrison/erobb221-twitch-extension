@@ -16,7 +16,7 @@ export default function HideExtensionModal(props: HideExtensionModalProps) {
         <div className={styles.title}>Are You Sure You Want To Hide The Extension?</div>
         <div className={styles.description}>
           <p>
-            You won't be able to see the bingo game, the tomatoes being thrown or be able to blur erobb's ugly face.
+            You won't be able to see the bingo game and the tomatoes being thrown.
           </p>
           <p>
             You can show it again by pressing the same keys:
