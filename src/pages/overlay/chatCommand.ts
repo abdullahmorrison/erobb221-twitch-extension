@@ -64,7 +64,11 @@ export default function chatCommand(){
   }, [command])
 
   const connectedHandler = useCallback(() => {
-    console.log('%cExtension Connected to '+channel+'\'s Twitch Channel', 'color: purple; font-weight: bold; font-size: 20px')
+    console.log('%cExtension Connected to '+channel+'\'s Twitch Channel', 'color: green; font-weight: bold; font-size: 18px')
+  }, [])
+
+  const disconnectedHandler = useCallback(() => {
+    console.log('%cExtension Disconnected from '+channel+'\'s Twitch Channel', 'color: red; font-weight: bold; font-size: 18px')
   }, [])
 
   const nullifyCommand = useCallback(() => {
@@ -74,13 +78,14 @@ export default function chatCommand(){
   useEffect(() => {
     client.addListener('message', messageHandler)
     client.addListener('connected', connectedHandler)
+    client.addListener('disconnected', disconnectedHandler)
     client.connect()
 
     return () => {
       client.removeAllListeners()
       client.disconnect()
     }
-  }, [client, messageHandler, connectedHandler])
+  }, [])
 
 
   return [command, tomatoTimer, nullifyCommand] as const
