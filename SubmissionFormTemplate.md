@@ -4,12 +4,13 @@ The overlay uses a built-in chatbot to display the bingo board.
 
 ChangeLog:
 
-- changed timer to throw tomatoes at the screen from 15 seconds to 30 seconds
+- changed the timer to throw tomatoes at the screen from 15 seconds to 30 seconds
 
-Chatbot Commands:
+Chatbot Commands: what happens if @abdullahmorrison or a moderator types one of these commands in erobb221's chat
 
 - !bingo: opens the overlay bingo board
-- !startthrowing: 30 second timer starts that allows chat to throw virtual tomatoes at the screen by typing TomatoTime
+- !startthrowing: 30-second timer starts that allows the chat to throw virtual tomatoes at the screen by typing TomatoTime
+    - Here is a demo video: https://github.com/abdullahmorrison/Erobb221TwitchExtension/tree/main#throwing-tomatoes
 
 External Links:
 
