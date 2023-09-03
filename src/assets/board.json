@@ -478,5 +478,21 @@
     },
     "title": "Chat Sexualizes Lamont",
     "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/LOSERDANCEBUTFAST.webp",
+      "altText": "LOSERDANCEBUTFAST"
+    },
+    "title": "Leak",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/clocks.png",
+      "altText": "clocks"
+    },
+    "title": "clock spam",
+    "clicked": false
   }
 ]
