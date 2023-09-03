@@ -316,7 +316,7 @@
       "src": "imgs/LimeD.webp",
       "altText": "LimeD"
     },
-    "title": "\"Twitch Con Threat\"",
+    "title": "Twitch Con Threat",
     "clicked": false
   },
   {
@@ -409,14 +409,6 @@
   },
   {
     "img": {
-      "src": "imgs/CUBE.webp",
-      "altText": "CUBE"
-    },
-    "title": "....",
-    "clicked": false
-  },
-  {
-    "img": {
       "src": "imgs/Lemon.webp",
       "altText": "Lemon"
     },
@@ -477,6 +469,134 @@
       "altText": "Lamonting"
     },
     "title": "Chat Sexualizes Lamont",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/emoneyShrimp.webp",
+      "altText": "emoneyShrimp"
+    },
+    "title": "Posture",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/NerdL.webp",
+      "altText": "NerdL"
+    },
+    "title": "\"Frick\"",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/GERD.webp",
+      "altText": "GERD"
+    },
+    "title": "GERD Attack",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/widepeepoSad.webp",
+      "altText": "widepeepoSad"
+    },
+    "title": "Tech Support Stream",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/4Salute.webp",
+      "altText": "4Salute"
+    },
+    "title": "Brave Chatter",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/Eric.webp",
+      "altText": "Eric"
+    },
+    "title": "Borby Talking to Himself",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/Lidea.webp",
+      "altText": "Lidea"
+    },
+    "title": "\"I have an idea\"",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/ALCOHOLIC.webp",
+      "altText": "ALCOHOLIC"
+    },
+    "title": "Drinking on Stream",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/GOTTEEM.webp",
+      "altText": "GOTTEEM"
+    },
+    "title": "!dayoff Bait in Chat",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/Autistic.webp",
+      "altText": "Autistic"
+    },
+    "title": "Tetris Time",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/ImNotSad.webp",
+      "altText": "ImNotSad"
+    },
+    "title": "Erobb Whining",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/TomatoTime.webp",
+      "altText": "TomatoTime"
+    },
+    "title": "Tomatoes Being Thrown",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/cuh.webp",
+      "altText": "cuh"
+    },
+    "title": "emoneyGA Dono",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/LimeOutside.webp",
+      "altText": "LimeOutside"
+    },
+    "title": "IRL Stream",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/LemonBalling.webp",
+      "altText": "LemonBalling"
+    },
+    "title": "Woman Moment",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/ThorL.webp",
+      "altText": "ThorL"
+    },
+    "title": "Game Lag",
     "clicked": false
   },
   {

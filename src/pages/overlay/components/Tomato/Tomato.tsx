@@ -11,7 +11,10 @@ export default function Tomato(props: tomatoProps) {
       {props.tomatoes.map(tomato => (
         <div
           key={tomato.x + tomato.y + tomato.rotate}
-          className={tomato.splatter ? styles.tomatoSplatter : styles.tomato}
+          className={`
+            ${tomato.splatter ? styles.tomatoSplatter : styles.tomato}
+            ${tomato.fadeAway ? styles.fadeAway : undefined}
+          `}
           style={{
             left: `${tomato.x}%`,
             bottom: `${tomato.y}%`,

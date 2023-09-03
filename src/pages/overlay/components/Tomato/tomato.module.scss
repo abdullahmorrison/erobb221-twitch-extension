@@ -8,16 +8,18 @@
 .tomato{
   background-image: url('../../../../assets/imgs/tomato.png');
   animation: throwTomato 0.5s linear;
-  //center transform origin
 }
 .tomatoSplatter{
   background-image: url('../../../../assets/imgs/tomato-splat.png');
+}
+.fadeAway{
+  opacity: 0;
+  transition: opacity 0.5s linear;
 }
 
 @keyframes throwTomato {
    0% {
     left: 100%;
-    // transform: rotateZ(0deg);
   }
   50%{
     width: 100px;
@@ -25,13 +27,5 @@
   100% {
     width: 50px;
     transform: rotateZ(760deg);
-  }
-}
-@keyframes fadeAway {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
   }
 }
