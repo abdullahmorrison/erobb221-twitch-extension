@@ -53,7 +53,7 @@ export default function BlurBox() {
     context.strokeRect(startX.current, startY.current, x - startX.current, y - startY.current)
     context.filter = 'blur(20px)'
     context.fillRect(startX.current, startY.current, x - startX.current, y - startY.current)
-    context.fillStyle = 'grey'
+    context.fillStyle = 'rgba(0, 0, 0, 0.7)'
   }
 
   const stopDrawing = () => {

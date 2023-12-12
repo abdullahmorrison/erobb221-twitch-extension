@@ -601,6 +601,7 @@
   },
   {
     "img": {
+<<<<<<< HEAD
       "src": "imgs/dodgeball.webp",
       "altText": "dodgeball"
     },
@@ -656,7 +657,7 @@
     "clicked": false
   },
   {
-    "img": {
+    "img":{
       "src": "imgs/LOSERDANCEBUTFAST.webp",
       "altText": "LOSERDANCEBUTFAST"
     },
@@ -669,6 +670,14 @@
       "altText": "AIRWICK"
     },
     "title": "Britt Complaining in Chat",
+    "clicked": false
+  },
+  {
+    "img":{
+      "src": "imgs/clocks.png",
+      "altText": "clocks"
+    },
+    "title": "clock spam",
     "clicked": false
   }
 ]
