@@ -598,5 +598,77 @@
     },
     "title": "Game Lag",
     "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/dodgeball.webp",
+      "altText": "dodgeball"
+    },
+    "title": "Talks About His Dodgeball Degree",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/LMAOOOOOOOOOO.webp",
+      "altText": "LMAOOOOOOOOOO"
+    },
+    "title": "MizeGuy Trolls Eric",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/Wheel.webp",
+      "altText": "Wheel"
+    },
+    "title": "Small Wheel Spin",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/Peace.webp",
+      "altText": "Peace"
+    },
+    "title": "HoldingKeys or Dyl gets Banned",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/oRAGE.webp",
+      "altText": "oRAGE"
+    },
+    "title": "Rage Quits a Game",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/Lemon.webp",
+      "altText": "Lemon"
+    },
+    "title": "\"Sup Sup\"",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/Fatass.webp",
+      "altText": "Fatass"
+    },
+    "title": "Eating on Stream",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/LOSERDANCEBUTFAST.webp",
+      "altText": "LOSERDANCEBUTFAST"
+    },
+    "title": "We Found Out",
+    "clicked": false
+  },
+  {
+    "img": {
+      "src": "imgs/AIRWICK.webp",
+      "altText": "AIRWICK"
+    },
+    "title": "Britt Complaining in Chat",
+    "clicked": false
   }
 ]
