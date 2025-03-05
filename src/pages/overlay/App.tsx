@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useReducer } from 'react'
+import React, { useEffect, useCallback, useReducer } from 'react'
 import HideExtensionModal from './components/HideExtensionModal/HideExtensionModal'
 import BingoGame from './components/BingoGame/BingoGame'
 import Tomato from './components/Tomato/Tomato'
